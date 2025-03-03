@@ -1,0 +1,12 @@
+# Ignorar tot el projecte de WordPress excepte wp-content
+/*
+!.gitignore
+!wp-content/
+
+# Ignorar tot dins de wp-content excepte algunes carpetes
+wp-content/*
+!wp-content/plugins/
+!wp-content/themes/
+!wp-content/uploads/
+
+
