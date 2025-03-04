@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Recomanacions
- * Description: Plugin afegeix un shortcode per mostrar les recomanacions
+ * Description: Plugin que afegeix un shortcode per mostrar les recomanacions
  * Version:     1.0.0
  * Author:      llopfilms
  * Author URI:
@@ -16,4 +16,4 @@ define( 'PROVATECFILMPEDIA_DIR', plugin_dir_path( __FILE__ ) );
 // require_once( PROVATECFILMPEDIA_DIR . '/includes/cpt.php' );
 
 // Shortcode
-require_once( PROVATECFILMPEDIA_DIR . '/includes/shortcode.php' );
+require_once( PROVATECFILMPEDIA_DIR . '/includes/recomanacions_shortcode.php' );
