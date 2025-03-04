@@ -1,5 +1,4 @@
 <?php
-
 function recomanacions_shortcode() {
     ob_start();
     ?>
