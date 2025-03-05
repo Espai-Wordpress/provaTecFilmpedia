@@ -14,52 +14,31 @@ function recommendations_shortcode() {
     if ( $query->have_posts() ):
 
         while ( $query->have_posts() ): $query->the_post();
-            // Recuperem totes les metadades i taxonomies una sola vegada
-            $destacat        = get_post_meta( get_the_ID(), 'destacat', true );
-            $titol           = get_post_meta( get_the_ID(), 'titol', true );
-            $descripcio      = get_post_meta( get_the_ID(), 'descripcio', true );
-            $imatge_fons_url = wp_get_attachment_url( get_post_meta( get_the_ID(), 'imatge_fons', true ) );
-            $ludic           = get_post_meta( get_the_ID(), 'ludic', true );
-            $cultural        = get_post_meta( get_the_ID(), 'cultural', true );
-            $artistic        = get_post_meta( get_the_ID(), 'artistic', true );
-            $educatiu        = get_post_meta( get_the_ID(), 'educatiu', true );
-            $temes           = get_the_terms( get_the_ID(), 'tema' );
-            $ambits          = get_the_terms( get_the_ID(), 'ambit' );
-            $edat            = get_the_terms( get_the_ID(), 'edat' );
-            $etiquetes       = get_the_terms( get_the_ID(), 'etiqueta' );
 
-// Comprovem si el valor de 'destacat' és '1' (true) o '0' (false) i assignem directament als arrays
-            if ( $destacat === '1' ): // Si 'destacat' és '1', el posem a l'array de destacats
-                $destacats[] = array(
-                    'titol'           => $titol,
-                    'descripcio'      => $descripcio,
-                    'imatge_fons_url' => $imatge_fons_url,
-                    'ludic'           => $ludic,
-                    'cultural'        => $cultural,
-                    'artistic'        => $artistic,
-                    'educatiu'        => $educatiu,
-                    'temes'           => $temes,
-                    'ambits'          => $ambits,
-                    'edat'            => $edat,
-                    'etiquetes'       => $etiquetes,
-                );
-            else: // Si no, el posem a l'array de no destacats
-                $no_destacats[] = array(
-                    'titol'           => $titol,
-                    'descripcio'      => $descripcio,
-                    'imatge_fons_url' => $imatge_fons_url,
-                    'ludic'           => $ludic,
-                    'cultural'        => $cultural,
-                    'artistic'        => $artistic,
-                    'educatiu'        => $educatiu,
-                    'temes'           => $temes,
-                    'ambits'          => $ambits,
-                    'edat'            => $edat,
-                    'etiquetes'       => $etiquetes,
-                );
-            endif;
+            // Creem els posts abans d'afegir-los a l'array
+            $post_data = array(
+                'titol'           => get_field( 'titol' ),
+                'descripcio'      => get_field( 'descripcio' ),
+                'imatge_fons_url' => get_field( 'imatge_fons' ),
+                'ludic'           => get_field( 'ludic' ),
+                'cultural'        => get_field( 'cultural' ),
+                'artistic'        => get_field( 'artistic' ),
+                'educatiu'        => get_field( 'educatiu' ),
+                'destacat'        => get_field( 'destacat' ),
+                'temes'           => array_map( fn( $id ) => get_term( $id )->name, get_field( 'tema' ) ),
+                'ambits'          => array_map( fn( $id ) => get_term( $id )->name, get_field( 'ambit' ) ),
+                'edat'            => get_term( get_field( 'edat' ) )->name,
+                'etiquetes'       => array_map( fn( $id ) => get_term( $id )->name, get_field( 'etiquetes' ) ),
+            );
+
+// Assignació als arrays segons si és destacat o no
+            if ( $post_data['destacat'] === '1' ) {
+                $destacats[] = $post_data;
+            } else {
+                $no_destacats[] = $post_data;
+            }
+
         endwhile;
-
     endif;
 
     ?>
@@ -67,60 +46,22 @@ function recommendations_shortcode() {
 
         <div class="destacats">
             <p>CPT Destacats</p>
-            <?php
-
-    foreach ( $destacats as $destacat ): ?>
+            <?php foreach ( $destacats as $destacat ): ?>
                 <div class="destacat">
-                    <div class="titol">
-                        <p><?php echo $destacat['titol']; ?></p>
-                    </div>
-
-                    <div class="descripcio">
-                        <p><?php echo $destacat['descripcio']; ?></p>
-                    </div>
-
-                    <div class="imatge_fons">
-                        <img src="<?php echo $destacat['imatge_fons_url']; ?>" alt="imatge de fons" width="400">
-                    </div>
-
-                    <div class="rangs">
-                        <div class="rang-ludic">
-                            <label for="ludic">Lúdic:</label>
-                            <input type="range" id="ludic" value="<?php echo( $destacat['ludic'] ); ?>" disabled min="0" max="10">
-                        </div>
-                        <div class="rang-cultural">
-                            <label for="cultural">Cultural:</label>
-                            <input type="range" id="cultural" value="<?php echo( $destacat['cultural'] ); ?>" disabled min="0" max="10">
-                        </div>
-                        <div class="rang-artistic">
-                            <label for="artistic">Artístic:</label>
-                            <input type="range" id="artistic" value="<?php echo( $destacat['artistic'] ); ?>" disabled min="0" max="10">
-                        </div>
-                        <div class="rang-educatiu">
-                            <label for="educatiu">Educatiu:</label>
-                            <input type="range" id="educatiu" value="<?php echo( $destacat['educatiu'] ); ?>" disabled min="0" max="10">
-                        </div>
-                    </div>
+                    <div class="titol"><p><?php echo $destacat['titol']; ?></p></div>
+                    <div class="descripcio"><p><?php echo $destacat['descripcio']; ?></p></div>
+                    <div class="imatge_fons"><img src="<?php echo $destacat['imatge_fons_url']; ?>" alt="imatge de fons" width="400"></div>
 
                     <div class="taxonomies">
-                        <?php
-
-    foreach ( $destacat['temes'] as $taxonomy ): ?>
-                            <div class="taxonomy-item"><?php echo esc_html( $taxonomy->name ); ?></div>
+                        <?php foreach ( $destacat['temes'] as $tema ): ?>
+                            <div class="taxonomy-item"><?php echo esc_html( $tema ); ?></div>
                         <?php endforeach; ?>
-
-                        <?php
-
-    foreach ( $destacat['ambits'] as $taxonomy ): ?>
-                            <div class="taxonomy-item"><?php echo esc_html( $taxonomy->name ); ?></div>
+                        <?php foreach ( $destacat['ambits'] as $ambit ): ?>
+                            <div class="taxonomy-item"><?php echo esc_html( $ambit ); ?></div>
                         <?php endforeach; ?>
-
-                        <div class="taxonomy-item"><?php echo esc_html( $destacat['edat'][0]->name ); ?></div>
-
-                        <?php
-
-    foreach ( $destacat['etiquetes'] as $taxonomy ): ?>
-                            <div class="taxonomy-item"><?php echo esc_html( $taxonomy->name ); ?></div>
+                        <div class="taxonomy-item"><?php echo esc_html( $destacat['edat'] ); ?></div>
+                        <?php foreach ( $destacat['etiquetes'] as $etiqueta ): ?>
+                            <div class="taxonomy-item"><?php echo esc_html( $etiqueta ); ?></div>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -129,61 +70,22 @@ function recommendations_shortcode() {
 
         <div class="no_destacats">
             <p>CPT no destacats</p>
-            <?php
-
-    foreach ( $no_destacats as $no_destacat ): ?>
+            <?php foreach ( $no_destacats as $no_destacat ): ?>
                 <div class="no-destacat">
-                    <div class="titol">
-                        <p><?php echo $no_destacat['titol']; ?></p>
-                    </div>
-
-                    <div class="descripcio">
-                        <p><?php echo $no_destacat['descripcio']; ?></p>
-                    </div>
-
-                    <div class="imatge_fons">
-                        <img src="<?php echo $no_destacat['imatge_fons_url']; ?>" alt="imatge de fons" width="400">
-                    </div>
-
-                    <div class="rangs">
-                        <div class="rang-ludic">
-                            <label for="ludic">Lúdic:</label>
-                            <input type="range" id="ludic" value="<?php echo( $destacat['ludic'] ); ?>" disabled min="0" max="10">
-                        </div>
-                        <div class="rang-cultural">
-                            <label for="cultural">Cultural:</label>
-                            <input type="range" id="cultural" value="<?php echo( $destacat['cultural'] ); ?>" disabled min="0" max="10">
-                        </div>
-                        <div class="rang-artistic">
-                            <label for="artistic">Artístic:</label>
-                            <input type="range" id="artistic" value="<?php echo( $destacat['artistic'] ); ?>" disabled min="0" max="10">
-                        </div>
-                        <div class="rang-educatiu">
-                            <label for="educatiu">Educatiu:</label>
-                            <input type="range" id="educatiu" value="<?php echo( $destacat['educatiu'] ); ?>" disabled min="0" max="10">
-                        </div>
-                    </div>
-
+                    <div class="titol"><p><?php echo $no_destacat['titol']; ?></p></div>
+                    <div class="descripcio"><p><?php echo $no_destacat['descripcio']; ?></p></div>
+                    <div class="imatge_fons"><img src="<?php echo $no_destacat['imatge_fons_url']; ?>" alt="imatge de fons" width="400"></div>
 
                     <div class="taxonomies">
-                        <?php
-
-    foreach ( $no_destacat['temes'] as $taxonomy ): ?>
-                            <div class="taxonomy-item"><?php echo esc_html( $taxonomy->name ); ?></div>
+                        <?php foreach ( $no_destacat['temes'] as $tema ): ?>
+                            <div class="taxonomy-item"><?php echo esc_html( $tema ); ?></div>
                         <?php endforeach; ?>
-
-                        <?php
-
-    foreach ( $no_destacat['ambits'] as $taxonomy ): ?>
-                            <div class="taxonomy-item"><?php echo esc_html( $taxonomy->name ); ?></div>
+                        <?php foreach ( $no_destacat['ambits'] as $ambit ): ?>
+                            <div class="taxonomy-item"><?php echo esc_html( $ambit ); ?></div>
                         <?php endforeach; ?>
-
-                        <div class="taxonomy-item"><?php echo esc_html( $no_destacat['edat'][0]->name ); ?></div>
-
-                        <?php
-
-    foreach ( $no_destacat['etiquetes'] as $taxonomy ): ?>
-                            <div class="taxonomy-item"><?php echo esc_html( $taxonomy->name ); ?></div>
+                        <div class="taxonomy-item"><?php echo esc_html( $no_destacat['edat'] ); ?></div>
+                        <?php foreach ( $no_destacat['etiquetes'] as $etiqueta ): ?>
+                            <div class="taxonomy-item"><?php echo esc_html( $etiqueta ); ?></div>
                         <?php endforeach; ?>
                     </div>
                 </div>
