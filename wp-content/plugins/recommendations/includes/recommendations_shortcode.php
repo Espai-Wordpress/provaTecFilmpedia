@@ -32,7 +32,7 @@ function recommendations_shortcode() {
             );
 
 // Assignació als arrays segons si és destacat o no
-            if ( $post_data['destacat'] === '1' ) {
+            if ( $post_data['destacat'] === true ) {
                 $destacats[] = $post_data;
             } else {
                 $no_destacats[] = $post_data;
