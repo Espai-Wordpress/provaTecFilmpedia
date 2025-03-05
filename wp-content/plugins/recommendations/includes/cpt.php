@@ -1,5 +1,4 @@
 <?php
-
 add_action( 'acf/include_fields', function () {
     if ( !function_exists( 'acf_add_local_field_group' ) ) {
         return;
@@ -367,8 +366,8 @@ add_action( 'acf/include_fields', function () {
 } );
 
 add_action( 'init', function () {
-    register_taxonomy( 'ambit', array(
-        0 => 'recomanacio',
+    register_taxonomy( 'ambits', array(
+        0 => 'recomanacions',
     ), array(
         'labels'       => array(
             'name'                     => 'Àmbits',
@@ -407,8 +406,8 @@ add_action( 'init', function () {
         ),
     ) );
 
-    register_taxonomy( 'edat', array(
-        0 => 'recomanacio',
+    register_taxonomy( 'edats', array(
+        0 => 'recomanacions',
     ), array(
         'labels'       => array(
             'name'                     => 'Edats',
@@ -444,8 +443,8 @@ add_action( 'init', function () {
         'show_in_rest' => true,
     ) );
 
-    register_taxonomy( 'etiqueta', array(
-        0 => 'recomanacio',
+    register_taxonomy( 'etiquetes', array(
+        0 => 'recomanacions',
     ), array(
         'labels'       => array(
             'name'                       => 'Etiquetes',
@@ -480,10 +479,10 @@ add_action( 'init', function () {
         'show_in_rest' => true,
     ) );
 
-    register_taxonomy( 'tema', array(
-        0 => 'recomanacio',
+    register_taxonomy( 'temes', array(
+        0 => 'recomanacions',
     ), array(
-        'labels'             => array(
+        'labels'            => array(
             'name'                     => 'Temes',
             'singular_name'            => 'Tema',
             'menu_name'                => 'Tema',
@@ -510,37 +509,35 @@ add_action( 'init', function () {
             'item_link'                => 'Enllaç al tema',
             'item_link_description'    => 'Un enllaç al tema',
         ),
-        'description'        => 'Tipus de temàtica del recurs',
-        'public'             => true,
-        'hierarchical'       => true,
-        'show_ui'            => false,
-        'show_in_menu'       => true,
-        'show_in_rest'       => true,
-        'show_tagcloud'      => true,
-        'show_in_quick_edit' => true,
-        'rewrite'            => array(
+        'description'       => 'Tipus de temàtica del recurs',
+        'public'            => true,
+        'hierarchical'      => true,
+        'show_in_menu'      => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'rewrite'           => array(
             'hierarchical' => true,
         ),
     ) );
 } );
 
 add_action( 'init', function () {
-    register_post_type( 'recomanacio', array(
+    register_post_type( 'recomanacions', array(
         'labels'           => array(
             'name'                     => 'Recomanacions',
             'singular_name'            => 'Recomanació',
             'menu_name'                => 'Recomanacions',
             'all_items'                => 'Totes les recomanacions',
-            'add_new'                  => 'Afegir nova',
-            'add_new_item'             => 'Afegir nova recomanació',
             'edit_item'                => 'Edita recomanació',
-            'new_item'                 => 'Nova recomanació',
             'view_item'                => 'Veure recomanació',
             'view_items'               => 'Veures recomanacions',
-            'search_items'             => 'Cercar recomanació',
-            'not_found'                => 'No s&#039;han trobat recomanacions',
-            'not_found_in_trash'       => 'No s&#039;han trobat recomanacions a la paperera',
+            'add_new_item'             => 'Afegir nova recomanació',
+            'add_new'                  => 'Afegir nova',
+            'new_item'                 => 'Nova recomanació',
             'parent_item_colon'        => 'Recomanació pare:',
+            'search_items'             => 'Cercar recomanació',
+            'not_found'                => 'No s\'han trobat recomanacions',
+            'not_found_in_trash'       => 'No s\'han trobat recomanacions a la paperera',
             'archives'                 => 'Arxius de recomanació',
             'attributes'               => 'Atributs de recomanació',
             'featured_image'           => 'Imatge destacada de la recomanació',
@@ -557,15 +554,18 @@ add_action( 'init', function () {
             'item_reverted_to_draft'   => 'Recomanació convertida a esborrany',
             'item_scheduled'           => 'Recomanació agendada',
             'item_updated'             => 'Recomanació actualitzada',
-            'parent'                   => 'Recomanació pare:',
-            'name_admin_bar'           => 'Recomanació',
-            'item_trashed'             => 'Recomanació enviada a la paperera',
         ),
         'description'      => 'Recomanacions de recursos àudio visuals',
         'public'           => true,
         'show_in_rest'     => true,
         'menu_icon'        => 'dashicons-pressthis',
         'supports'         => false,
+        'taxonomies'       => array(
+            0 => 'ambits',
+            1 => 'edats',
+            2 => 'temes',
+            3 => 'etiquetes',
+        ),
         'has_archive'      => true,
         'rewrite'          => array(
             'feeds' => false,
@@ -577,7 +577,7 @@ add_action( 'init', function () {
 
 add_filter( 'enter_title_here', function ( $default, $post ) {
     switch ( $post->post_type ) {
-    case 'recomanacio':
+    case 'recomanacions':
         return 'Afegir recomanació';
     }
 

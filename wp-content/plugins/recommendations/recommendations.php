@@ -16,4 +16,4 @@ define( 'PROVATECFILMPEDIA_DIR', plugin_dir_path( __FILE__ ) );
 // require_once( PROVATECFILMPEDIA_DIR . '/includes/cpt.php' );
 
 // Shortcode
-require_once( PROVATECFILMPEDIA_DIR . '/includes/recomanacions_shortcode.php' );
+require_once( PROVATECFILMPEDIA_DIR . '/includes/recommendations_shortcode.php' );
