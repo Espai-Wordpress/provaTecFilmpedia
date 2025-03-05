@@ -3,52 +3,51 @@ function render_recommendation($post_data)
 {
   ob_start();
 ?>
-  <div class="titol">
+  <div class="card-title">
     <h2><?php echo esc_html($post_data['titol']); ?></h2>
   </div>
-  <div class="descripcio">
+  <div class="card-description">
     <p><?php echo esc_html($post_data['descripcio']); ?></p>
   </div>
-  <div class="imatge_fons">
+  <div class="card-image">
     <img src="<?php echo esc_url($post_data['imatge_fons_url']); ?>" alt="imatge de fons" width="400">
   </div>
 
-  <div class="rangs">
-    <div class="rang-ludic">
+  <div class="card-ranges range">
+    <div class="range-ludic">
       <label for="ludic">Lúdic:</label>
       <input type="range" id="ludic" value="<?php echo ($post_data['ludic']); ?>" disabled min="0" max="10">
     </div>
-    <div class="rang-cultural">
+    <div class="range-cultural">
       <label for="cultural">Cultural:</label>
       <input type="range" id="cultural" value="<?php echo ($post_data['cultural']); ?>" disabled min="0" max="10">
     </div>
-    <div class="rang-artistic">
+    <div class="range-artistic">
       <label for="artistic">Artístic:</label>
       <input type="range" id="artistic" value="<?php echo ($post_data['artistic']); ?>" disabled min="0" max="10">
     </div>
-    <div class="rang-educatiu">
+    <div class="range-educatiu">
       <label for="educatiu">Educatiu:</label>
       <input type="range" id="educatiu" value="<?php echo ($post_data['educatiu']); ?>" disabled min="0" max="10">
     </div>
   </div>
 
-  <div class="taxonomies">
+  <div class="card-taxonomies taxonomy">
     <?php
-
     foreach ($post_data['temes'] as $tema): ?>
-      <div class="taxonomies-temes"><?php echo esc_html($tema); ?></div>
+      <div class="taxonomy-temes"><?php echo esc_html($tema); ?></div>
     <?php endforeach; ?>
     <?php
 
     foreach ($post_data['ambits'] as $ambit): ?>
-      <div class="taxonomies-ambits"><?php echo esc_html($ambit); ?></div>
+      <div class="taxonomy-ambits"><?php echo esc_html($ambit); ?></div>
     <?php endforeach; ?>
 
-    <div class="taxonomies-edat"><?php echo esc_html($post_data['edat']); ?></div>
+    <div class="taxonomy-edat"><?php echo esc_html($post_data['edat']); ?></div>
     <?php
 
     foreach ($post_data['etiquetes'] as $etiqueta): ?>
-      <div class="taxonomies-etiquetes"><?php echo esc_html($etiqueta); ?></div>
+      <div class="taxonomy-etiquetes"><?php echo esc_html($etiqueta); ?></div>
     <?php endforeach; ?>
   </div>
 <?php
@@ -102,7 +101,7 @@ function recommendations_shortcode()
   <div class="container">
     <div class="destacats">
       <?php foreach ($destacats as $destacat): ?>
-        <div class="destacat">
+        <div class="destacat card">
           <?php echo render_recommendation($destacat); ?>
         </div>
       <?php endforeach; ?>
@@ -110,7 +109,7 @@ function recommendations_shortcode()
 
     <div class="no-destacats">
       <?php foreach ($no_destacats as $no_destacat): ?>
-        <div class="no-destacat">
+        <div class="no-destacat card">
           <?php echo render_recommendation($no_destacat); ?>
         </div>
       <?php endforeach; ?>
