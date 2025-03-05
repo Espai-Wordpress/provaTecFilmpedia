@@ -4,7 +4,7 @@ function render_recommendation($post_data)
   ob_start();
 ?>
   <div class="titol">
-    <p><?php echo esc_html($post_data['titol']); ?></p>
+    <h2><?php echo esc_html($post_data['titol']); ?></h2>
   </div>
   <div class="descripcio">
     <p><?php echo esc_html($post_data['descripcio']); ?></p>
@@ -36,18 +36,19 @@ function render_recommendation($post_data)
     <?php
 
     foreach ($post_data['temes'] as $tema): ?>
-      <div class="taxonomy-item"><?php echo esc_html($tema); ?></div>
+      <div class="taxonomies-temes"><?php echo esc_html($tema); ?></div>
     <?php endforeach; ?>
     <?php
 
     foreach ($post_data['ambits'] as $ambit): ?>
-      <div class="taxonomy-item"><?php echo esc_html($ambit); ?></div>
+      <div class="taxonomies-ambits"><?php echo esc_html($ambit); ?></div>
     <?php endforeach; ?>
-    <div class="taxonomy-item"><?php echo esc_html($post_data['edat']); ?></div>
+
+    <div class="taxonomies-edat"><?php echo esc_html($post_data['edat']); ?></div>
     <?php
 
     foreach ($post_data['etiquetes'] as $etiqueta): ?>
-      <div class="taxonomy-item"><?php echo esc_html($etiqueta); ?></div>
+      <div class="taxonomies-etiquetes"><?php echo esc_html($etiqueta); ?></div>
     <?php endforeach; ?>
   </div>
 <?php
