@@ -12,7 +12,8 @@ function provatecfilmpedia_child_enqueue_styles() {
     // Registrar el full d'estils del tema fill
     wp_enqueue_style(
         'provatecfilmpedia-child-style',
-        get_stylesheet_uri(),
+        /* get_stylesheet_uri(), */
+        get_stylesheet_directory_uri() . '/css/style.css',
         array( 'twenty-twenty-five-style' ),
         wp_get_theme()->get( 'Version' )
     );
