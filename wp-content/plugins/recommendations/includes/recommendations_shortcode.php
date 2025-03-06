@@ -112,10 +112,13 @@ function recommendations_shortcode()
 
 ?>
   <div class="recommendations__container">
-    <div class="top-header">
-      <p>Recomanacions</p>
+    <div class="recommendations__top top">
+      <div class="top-tag">
+        <p>Recomanacions</p>
+      </div>
+      <p class="top-text">Films que et recomanem per tractar el tema</p>
     </div>
-    <p class="top-text">Films que et recomanem per tractar el tema</p>
+
     <div class="recommendations__destacats">
       <?php
       foreach ($destacats as $destacat): ?>

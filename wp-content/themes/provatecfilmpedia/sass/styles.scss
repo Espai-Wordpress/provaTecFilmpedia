@@ -1,6 +1,3 @@
-/* Theme Name: provatecfilmpedia */
-
-@use "base.scss";
-@use "mixins.scss";
-@use "recommendations.scss";
-@use "variables.scss";
+@use "normalize-custom.scss";
+@use "base";
+@use "recommendations";

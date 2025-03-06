@@ -1,19 +1,20 @@
-.recommendations-container {
-  font-size: $font-size-base;
-  color: $color-text;
-  background: $color-bg-body;
-  font-family: $font-family-body;
+@use 'globals' as *;
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+.recommendations__container {
+  margin: $base-5 auto;
+  padding: $base-5 $base-4;
+  max-width: $boxed;
+  font-size: $font-size-base;
+  background: $color-bg-body;
+  color: $color-text-dark;
+  font-family: $font-family-body;
+  display: flex;
+  flex-direction: column;
+  gap: $base-2;
 
   h1,
-  h2,
-  h3 {
+  h2 {
     font-family: $font-family-title;
-    color: $color-text;
+    color: $color-text-dark;
   }
 }
