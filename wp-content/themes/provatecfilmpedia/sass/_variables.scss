@@ -1,0 +1,101 @@
+// 📌 Variables globals en CSS
+:root {
+  // Colors
+  --color-text: #f4f2f2;
+  --color-text-dark: #3d3a3a;
+  --color-white: #ffffff;
+  --color-black: #202221;
+  --color-orange: #ff6f50;
+
+  // Fons
+  --color-bg-body: #fffafa;
+  --color-bg-black: #202221;
+  --color-bg-black-semitransparent: #20222118;
+
+  // Gradients
+  --gradient-destacat: linear-gradient(
+    to right,
+    var(--color-bg-black) 50%,
+    var(--color-bg-black-semitransparent) 100%
+  );
+
+  // Tipografies
+  --font-size-base: 16px;
+  --font-family-title: 'ABeeZee', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+  --font-family-card: 'DM Sans', sans-serif;
+
+  // Espais
+  --base: 0.25rem;
+  @for $i from 1 through 20 {
+    --base-#{$i}: calc(var(--base) * #{$i});
+  }
+
+// 1170px + 30px (padding extern) --> 1200px
+  --boxed: calc(73.125rem + 1.875rem);
+
+  // Z-index
+  --z-index-p1: 1;
+  --z-index-p2: 2;
+  --z-index-1: -1;
+  --z-index-2: -2;
+}
+
+// 📌 Variables Sass basades en les variables CSS
+// Colors
+$color-text: var(--color-text, #f4f2f2);
+$color-text-dark: var(--color-text-dark, #3d3a3a);
+$color-white: var(--color-white, #ffffff);
+$color-black: var(--color-black, #202221);
+$color-orange: var(--color-orange, #ff6f50);
+
+// Fons
+$color-bg-body: var(--color-bg-body, #fffafa);
+$color-bg-header: var(--color-bg-header, #3a3d3b);
+
+// Gradients
+$gradient-destacat: var(
+  --gradient-destacat,
+  linear-gradient(
+    to right,
+    var(--color-bg-black) 50%,
+    var(--color-bg-black-semitransparent) 100%
+  )
+);
+
+// Tipografies
+$font-size-base: var(--font-size-base, 16px);
+$font-family-title: var(--font-family-title, 'ABeeZee', sans-serif);
+$font-family-body: var(--font-family-body, 'Inter', sans-serif);
+$font-family-card: var(--font-family-card, 'DM Sans', sans-serif);
+
+// 📌 Generar espais automàticament
+$base-1: var(--base-1, 0.25rem); // 4px
+$base-2: var(--base-2, 0.5rem); // 8px
+$base-3: var(--base-3, 0.75rem); // 12px
+$base-4: var(--base-4, 1rem); // 16px
+$base-5: var(--base-5, 1.25rem); // 20px
+$base-6: var(--base-6, 1.5rem); // 24px
+$base-7: var(--base-7, 1.75rem); // 28px
+$base-8: var(--base-8, 2rem); // 32px
+$base-9: var(--base-9, 2.25rem); // 36px
+$base-10: var(--base-10, 2.5rem); // 40px
+$base-11: var(--base-11, 2.75rem); // 44px
+$base-12: var(--base-12, 3rem); // 48px
+$base-13: var(--base-13, 3.25rem); // 52px
+$base-14: var(--base-14, 3.5rem); // 56px
+$base-15: var(--base-15, 3.75rem); // 60px
+$base-16: var(--base-16, 4rem); // 64px
+$base-17: var(--base-17, 4.25rem); // 68px
+$base-18: var(--base-18, 4.5rem); // 72px
+$base-19: var(--base-19, 4.75rem); // 76px
+$base-20: var(--base-20, 5rem); // 80px
+
+// 1170px + 30px (padding extern) --> 1200px
+$boxed: var(--boxed, calc(73.125rem + 1.5rem));
+
+// 📌 Z-index
+$z-p1: var(--z-index-p1, 1);
+$z-p2: var(--z-index-p2, 2);
+$z-1: var(--z-index-1, -1);
+$z-2: var(--z-index-2, -2);

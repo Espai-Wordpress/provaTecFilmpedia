@@ -17,6 +17,14 @@ function provatecfilmpedia_child_enqueue_styles() {
         array( 'twenty-twenty-five-style' ),
         wp_get_theme()->get( 'Version' )
     );
+
+    // Afegir Google Fonts
+    wp_enqueue_style(
+        'google-fonts',
+        'https://fonts.googleapis.com/css2?family=ABeeZee&family=Inter:wght@100;300;400;700&family=DM+Sans:wght@400;500;700&display=swap',
+        array(),
+        null
+    );
 }
 
 // Hook per carregar els estils

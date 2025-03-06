@@ -1,0 +1,19 @@
+.recommendations-container {
+  font-size: $font-size-base;
+  color: $color-text;
+  background: $color-bg-body;
+  font-family: $font-family-body;
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: $font-family-title;
+    color: $color-text;
+  }
+}
