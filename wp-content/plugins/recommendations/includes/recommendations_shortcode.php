@@ -43,19 +43,22 @@ function render_recommendation($post_data)
         <p class="card__taxonomy-item card__taxonomy--edat"><?php echo esc_html($post_data['edat']); ?></p>
       </div>
       <div class="card__taxonomies-etiquetes card__taxonomy">
-        <?php foreach ($post_data['etiquetes'] as $etiqueta): ?>
+        <?php
+        foreach ($post_data['etiquetes'] as $etiqueta): ?>
           <p class="card__taxonomy-item card__taxonomy--etiqueta">#<?php echo esc_html($etiqueta); ?></p>
         <?php endforeach; ?>
       </div>
       <div class="card__taxonomies-temes card__taxonomy">
         <h3 class="card__taxonomy-title">Temes</h3>
-        <?php foreach ($post_data['temes'] as $tema): ?>
+        <?php
+        foreach ($post_data['temes'] as $tema): ?>
           <p class="card__taxonomy-item card__taxonomy--tema"><?php echo esc_html($tema); ?></p>
         <?php endforeach; ?>
       </div>
       <div class="card__taxonomies-ambits card__taxonomy">
         <h3 class="card__taxonomiy-title">Àmbits</h3>
-        <?php foreach ($post_data['ambits'] as $ambit): ?>
+        <?php
+        foreach ($post_data['ambits'] as $ambit): ?>
           <p class="card__taxonomy-item card__taxonomy--ambit"><?php echo esc_html($ambit); ?></p>
         <?php endforeach; ?>
       </div>
@@ -109,8 +112,13 @@ function recommendations_shortcode()
 
 ?>
   <div class="recommendations__container">
+    <div class="top-header">
+      <p>Recomanacions</p>
+    </div>
+    <p class="top-text">Films que et recomanem per tractar el tema</p>
     <div class="recommendations__destacats">
-      <?php foreach ($destacats as $destacat): ?>
+      <?php
+      foreach ($destacats as $destacat): ?>
         <div id="destacat" class="recommendations__card recommendations__card--destacat card">
           <?php echo render_recommendation($destacat); ?>
         </div>
@@ -118,7 +126,8 @@ function recommendations_shortcode()
     </div>
 
     <div class="recommendations__no-destacats">
-      <?php foreach ($no_destacats as $no_destacat): ?>
+      <?php
+      foreach ($no_destacats as $no_destacat): ?>
         <div id="no-destacat" class="recommendations__card recommendations__card--no-destacat card">
           <?php echo render_recommendation($no_destacat); ?>
         </div>
