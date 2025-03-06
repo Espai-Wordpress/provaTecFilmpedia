@@ -92,7 +92,7 @@ $base-19: var(--base-19, 4.75rem); // 76px
 $base-20: var(--base-20, 5rem); // 80px
 
 // 1170px + 30px (padding extern) --> 1200px
-$boxed: var(--boxed, calc(73.125rem + 1.5rem));
+$boxed: var(--boxed, calc(73.125rem + 1.875rem));
 
 // 📌 Z-index
 $z-p1: var(--z-index-p1, 1);
