@@ -21,48 +21,48 @@ function render_recommendation( $post_data ) {
 
     <div class="card__ranges">
       <h3 class="card__ranges-title">Valoració</h3>
-      <div class="card__ranges-block">
-        <div class="card__range card__ranges--ludic">
+      <div class="card__ranges-container card__range-block">
+        <div class="card__range-block card__range">
           <label class="card__range-label" for="ludic">Lúdic:</label>
-          <input class="card__range-input" type="range" id="ludic" value="<?php echo esc_html( $post_data['ludic'] ); ?>" disabled min="0" max="10">
+          <input class="card__range-input card__range-input--ludic" type="range" id="ludic" value="<?php echo esc_html( $post_data['ludic'] ); ?>" disabled min="0" max="10">
         </div>
-        <div class="card__range card__ranges--cultural">
+        <div class="card__range-block card__range">
           <label class="card__range-label" for="cultural">Cultural:</label>
-          <input class="card__range-input" type="range" id="cultural" value="<?php echo esc_html( $post_data['cultural'] ); ?>" disabled min="0" max="10">
+          <input class="card__range-input card__range-input--cultural" type="range" id="cultural" value="<?php echo esc_html( $post_data['cultural'] ); ?>" disabled min="0" max="10">
         </div>
-        <div class="card__range card__ranges--artistic">
+        <div class="card__range-block card__range">
           <label class="card__range-label" for="artistic">Artístic:</label>
-          <input class="card__range-input" type="range" id="artistic" value="<?php echo esc_html( $post_data['artistic'] ); ?>" disabled min="0" max="10">
+          <input class="card__range-input card__range-input--artistic" type="range" id="artistic" value="<?php echo esc_html( $post_data['artistic'] ); ?>" disabled min="0" max="10">
         </div>
-        <div class="card__range card__range--educatiu">
+        <div class="card__range-block card__range">
           <label class="card__range-label" for="educatiu">Educatiu:</label>
-          <input class="card__range-input" type="range" id="educatiu" value="<?php echo esc_html( $post_data['educatiu'] ); ?>" disabled min="0" max="10">
+          <input class="card__range-input card__range-input--educatiu" type="range" id="educatiu" value="<?php echo esc_html( $post_data['educatiu'] ); ?>" disabled min="0" max="10">
         </div>
       </div>
     </div>
 
     <div class="card__taxonomies">
-      <div class="card__taxonomies-temes">
-        <?php foreach ( $post_data['temes'] as $tema ): ?>
-          <p class="card__taxonomy card__taxonomy--tema"><?php echo esc_html( $tema ); ?></p>
-        <?php endforeach; ?>
+      <div class="card__taxonomies-edats card__taxonomy">
+        <p class="card__taxonomy-item card__taxonomy--edat"><?php echo esc_html( $post_data['edat'] ); ?></p>
       </div>
-
-      <div class="card__taxonomies-ambits">
-        <?php foreach ( $post_data['ambits'] as $ambit ): ?>
-          <p class="card__taxonomy card__taxonomy--ambit"><?php echo esc_html( $ambit ); ?></p>
-        <?php endforeach; ?>
-      </div>
-
-      <div class="card__taxonomies-edat">
-        <p class="card__taxonomy card__taxonomy--edat"><?php echo esc_html( $post_data['edat'] ); ?></p>
-      </div>
-
-      <div class="card__taxonomies-etiquetes">
+      <div class="card__taxonomies-etiquetes card__taxonomy">
         <?php foreach ( $post_data['etiquetes'] as $etiqueta ): ?>
-          <p class="card__taxonomy card__taxonomy--etiqueta"><?php echo esc_html( $etiqueta ); ?></p>
+          <p class="card__taxonomy-item card__taxonomy--etiqueta">#<?php echo esc_html( $etiqueta ); ?></p>
         <?php endforeach; ?>
       </div>
+      <div class="card__taxonomies-temes card__taxonomy">
+        <h3 class="card__taxonomy-title">Temes</h3>
+        <?php foreach ( $post_data['temes'] as $tema ): ?>
+          <p class="card__taxonomy-item card__taxonomy--tema"><?php echo esc_html( $tema ); ?></p>
+        <?php endforeach; ?>
+      </div>
+      <div class="card__taxonomies-ambits card__taxonomy">
+        <h3 class="card__taxonomiy-title">Àmbits</h3>
+        <?php foreach ( $post_data['ambits'] as $ambit ): ?>
+          <p class="card__taxonomy-item card__taxonomy--ambit"><?php echo esc_html( $ambit ); ?></p>
+        <?php endforeach; ?>
+      </div>
+      
     </div>
   </div>
 <?php
@@ -115,7 +115,7 @@ function recommendations_shortcode() {
       <?php
 
     foreach ( $destacats as $destacat ): ?>
-        <div class="recommendations__card recommendations__card--destacat">
+        <div id="destacat" class="recommendations__card recommendations__card--destacat">
           <?php echo render_recommendation( $destacat ); ?>
         </div>
       <?php endforeach; ?>
@@ -125,7 +125,7 @@ function recommendations_shortcode() {
       <?php
 
     foreach ( $no_destacats as $no_destacat ): ?>
-        <div class="recommendations__card recommendations__card--no-destacat">
+        <div id="no-destacat" class="recommendations__card recommendations__card--no-destacat">
           <?php echo render_recommendation( $no_destacat ); ?>
         </div>
       <?php endforeach; ?>
