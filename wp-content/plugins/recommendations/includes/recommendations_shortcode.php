@@ -23,19 +23,19 @@ function render_recommendation( $post_data ) {
       <div class="card-content__ranges-container">
         <div class="card-content__range-block range-block">
           <label class="range-block__label" for="ludic">Lúdic</label>
-          <input class="range-block__input range-block__input--ludic" type="range" id="ludic" value="<?php echo esc_html( $post_data['ludic'] ); ?>" disabled min="0" max="10">
+          <input class="range-block__input range-block__input--ludic" type="range" id="ludic" value="<?php echo esc_html( $post_data['ludic'] ); ?>" disabled>
         </div>
         <div class="card-content__range-block range-block">
           <label class="range-block__label" for="cultural">Cultural</label>
-          <input class="range-block__input range-bloc__input--cultural" type="range" id="cultural" value="<?php echo esc_html( $post_data['cultural'] ); ?>" disabled min="0" max="10">
+          <input class="range-block__input range-bloc__input--cultural" type="range" id="cultural" value="<?php echo esc_html( $post_data['cultural'] ); ?>">
         </div>
         <div class="card-content__range-block range-block">
           <label class="range-block__label" for="artistic">Artístic</label>
-          <input class="range-block__input range-block__input--artistic" type="range" id="artistic" value="<?php echo esc_html( $post_data['artistic'] ); ?>" disabled min="0" max="10">
+          <input class="range-block__input range-block__input--artistic" type="range" id="artistic" value="<?php echo esc_html( $post_data['artistic'] ); ?>" disabled>
         </div>
         <div class="card-content__range-block range-block">
           <label class="range-block__label" for="educatiu">Educatiu</label>
-          <input class="range-block__input range-block__input--educatiu" type="range" id="educatiu" value="<?php echo esc_html( $post_data['educatiu'] ); ?>" disabled min="0" max="10">
+          <input class="range-block__input range-block__input--educatiu" type="range" id="educatiu" value="<?php echo esc_html( $post_data['educatiu'] ); ?>" disabled>
         </div>
       </div>
     </div>

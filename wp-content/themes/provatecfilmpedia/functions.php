@@ -18,8 +18,18 @@ function provatecfilmpedia_child_enqueue_styles() {
         wp_get_theme()->get( 'Version' )
     );
 
-    
+    // Afegir Google Fonts
+    /*  wp_enqueue_style(
+    'google-fonts',
+    'https://fonts.googleapis.com/css2?family=ABeeZee&family=Inter:wght@100;300;400;700&family=DM+Sans:wght@400;500;700&display=swap',
+    array(),
+    null
+    ); */
 }
-
-// Hook per carregar els estils
 add_action( 'wp_enqueue_scripts', 'provatecfilmpedia_child_enqueue_styles' );
+
+//Afegir control pels rangs
+function provatecfilmpedia_child_enqueue_scripts() {
+    wp_enqueue_script( 'wp_enqueue_scripts', get_stylesheet_directory_uri() . '/js/range-control.js', array( 'jquery' ), '1.0', true );
+}
+add_action( 'wp_enqueue_scripts', 'provatecfilmpedia_child_enqueue_scripts' );

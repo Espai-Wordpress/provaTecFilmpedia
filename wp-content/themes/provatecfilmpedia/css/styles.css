@@ -226,10 +226,40 @@ body {
 }
 .recommendations__container .card-content__range-block {
   display: flex;
+  align-items: center;
   gap: var(--base-2, 0.5rem);
 }
 .recommendations__container .card-content__range-block .range-block__input {
-  color: var(--color-orange, #ff6f50);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: var(--color-white, #ffffff); /* Fons del range per Chrome */
+  height: var(--base-2, 0.5rem);
+  border-radius: var(--base-2, 0.5rem);
+  /* Treure la bola en Chrome, Safari i Edge */
+  /* Treure la bola en Firefox */
+  /* Barra de progrés en Chrome, Safari i Edge */
+  /* Barra progrés en Firefox */
+}
+.recommendations__container .card-content__range-block .range-block__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.recommendations__container .card-content__range-block .range-block__input::-moz-range-thumb {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+  border: none;
+}
+.recommendations__container .card-content__range-block .range-block__input::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, var(--color-orange, #ff6f50) 0%, var(--color-orange, #ff6f50) var(--progress), var(--color-white, #ffffff) var(--progress), var(--color-white, #ffffff) 100%);
+  height: var(--base-2, 0.5rem);
+  border-radius: var(--base-2, 0.5rem);
+}
+.recommendations__container .card-content__range-block .range-block__input::-moz-range-progress {
+  background: var(--color-orange, #ff6f50);
+  height: var(--base-2, 0.5rem);
+  border-radius: var(--base-2, 0.5rem);
 }
 .recommendations__container .card-content__taxonomies-ambits {
   display: none;

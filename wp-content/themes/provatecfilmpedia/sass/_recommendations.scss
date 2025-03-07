@@ -139,6 +139,7 @@
       &__range {
         &-block {
           display: flex;
+          align-items: center;
           gap: $base-2;
 
           .range-block {
@@ -146,7 +147,45 @@
             }
 
             &__input {
-              color: $color-orange;
+              -webkit-appearance: none;
+              appearance: none;
+              background-color: $color-white; /* Fons del range per Chrome */
+              height: $base-2;
+              border-radius: $base-2;
+
+              /* Treure la bola en Chrome, Safari i Edge */
+              &::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+              }
+
+              /* Treure la bola en Firefox */
+              &::-moz-range-thumb {
+                width: 0px;
+                height: 0px;
+                background: transparent;
+                border: none;
+              }
+
+              /* Barra de progrés en Chrome, Safari i Edge */
+              &::-webkit-slider-runnable-track {
+                background: linear-gradient(
+                  to right,
+                  $color-orange 0%,
+                  $color-orange var(--progress),
+                  $color-white var(--progress),
+                  $color-white 100%
+                );
+                height: $base-2;
+                border-radius: $base-2;
+              }
+            
+              /* Barra progrés en Firefox */
+              &::-moz-range-progress {
+                background: $color-orange;
+                height: $base-2;
+                border-radius: $base-2;
+              }
             }
           }
         }
