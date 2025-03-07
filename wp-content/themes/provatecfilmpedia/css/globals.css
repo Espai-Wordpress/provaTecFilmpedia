@@ -1,9 +1,9 @@
 :root {
   --color-text: #f4f2f2;
-  --color-text-dark: #3d3a3a;
+  --color-text-dark: #252525;
   --color-white: #ffffff;
   --color-black: #202221;
-  --color-grey: #cacaca;
+  --color-grey: #8a8a8a;
   --color-orange: #ff6f50;
   --color-bg-body: #efefef;
   --color-bg-recommendations: #fffafa;
@@ -41,6 +41,7 @@
   --base-20: calc(var(--base) * 20);
   --base-0_5: calc(var(--base) * 0.5);
   --base-0_75: calc(var(--base) * 0.75);
+  --base-1_25: calc(var(--base) * 1.25);
   --base-1_5: calc(var(--base) * 1.5);
   --base-2_5: calc(var(--base) * 2.5);
   --base-3_5: calc(var(--base) * 3.5);
