@@ -3,8 +3,10 @@
   --color-text-dark: #3d3a3a;
   --color-white: #ffffff;
   --color-black: #202221;
+  --color-grey: #cacaca;
   --color-orange: #ff6f50;
-  --color-bg-body: #fffafa;
+  --color-bg-body: #efefef;
+  --color-bg-recommendations: #fffafa;
   --color-bg-black: #202221;
   --color-bg-black-semitransparent: #20222118;
   --gradient-destacat: linear-gradient(
@@ -37,6 +39,13 @@
   --base-18: calc(var(--base) * 18);
   --base-19: calc(var(--base) * 19);
   --base-20: calc(var(--base) * 20);
+  --base-0_5: calc(var(--base) * 0.5);
+  --base-0_75: calc(var(--base) * 0.75);
+  --base-1_5: calc(var(--base) * 1.5);
+  --base-2_5: calc(var(--base) * 2.5);
+  --base-3_5: calc(var(--base) * 3.5);
+  --base-4_5: calc(var(--base) * 4.5);
+  --base-5_5: calc(var(--base) * 5.5);
   --boxed: calc(73rem + 2rem);
   --z-index-p1: 1;
   --z-index-p2: 2;

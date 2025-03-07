@@ -1,1 +1,60 @@
-@use "globals" as *;
+@use 'globals' as *;
+
+.recommendations__container {
+  &-top {
+    display: flex;
+    flex-direction: column;
+    gap: $base-4;
+
+    .top {
+      &-tag {
+        font-weight: 600;
+        font-size: $base-3_5;
+        border-bottom: solid $base-0_75 $color-grey;
+
+        &__text {
+          border-bottom: solid $base-0_75 $color-black;
+
+          &::before {
+            content: '';
+            display: inline-block;
+            vertical-align: baseline;
+            width: $base-3_5;
+            height: $base-3_5;
+            border-radius: $base-0_75;
+            background-color: $color-orange;
+            margin-right: $base-2;
+          }
+        }
+      }
+
+      &-text {
+        @include title-italic;
+        font-size: $base-5;
+      }
+    }
+  }
+
+  &-destacats {
+    border: 1px solid green;
+  }
+
+  &-no-destacats {
+    border: 1px solid blue;
+  }
+  .card {
+    border: 1px solid black;
+background-color: rgba(128, 128, 128, 0.769);
+
+    &-background {
+    }
+
+    &-content {
+
+      &__tag {
+        font-weight: 600;
+        text-transform: uppercase;
+}
+    }
+  }
+}

@@ -1,30 +1,12 @@
-:root :where(.is-layout-constrained) > :last-child {
-  margin-block-end: unset;
-}
-
-:root :where(.is-layout-constrained) > :first-child {
-  margin-block-start: unset;
-}
-
-.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
-  max-width: unset;
-  margin-left: unset;
-  margin-right: unset;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 :root {
   --color-text: #f4f2f2;
   --color-text-dark: #3d3a3a;
   --color-white: #ffffff;
   --color-black: #202221;
+  --color-grey: #cacaca;
   --color-orange: #ff6f50;
-  --color-bg-body: #fffafa;
+  --color-bg-body: #efefef;
+  --color-bg-recommendations: #fffafa;
   --color-bg-black: #202221;
   --color-bg-black-semitransparent: #20222118;
   --gradient-destacat: linear-gradient(
@@ -57,6 +39,13 @@
   --base-18: calc(var(--base) * 18);
   --base-19: calc(var(--base) * 19);
   --base-20: calc(var(--base) * 20);
+  --base-0_5: calc(var(--base) * 0.5);
+  --base-0_75: calc(var(--base) * 0.75);
+  --base-1_5: calc(var(--base) * 1.5);
+  --base-2_5: calc(var(--base) * 2.5);
+  --base-3_5: calc(var(--base) * 3.5);
+  --base-4_5: calc(var(--base) * 4.5);
+  --base-5_5: calc(var(--base) * 5.5);
   --boxed: calc(73rem + 2rem);
   --z-index-p1: 1;
   --z-index-p2: 2;
@@ -64,20 +53,96 @@
   --z-index-2: -2;
 }
 
-.recommendations__container {
-  margin: var(--base-5, 1.25rem) auto;
-  padding: var(--base-5, 1.25rem) var(--base-4, 1rem);
-  max-width: var(--boxed, 75rem);
+:root :where(.is-layout-constrained) > :last-child {
+  margin-block-end: unset;
+}
+
+:root :where(.is-layout-constrained) > :first-child {
+  margin-block-start: unset;
+}
+
+.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: unset;
+  margin-left: unset;
+  margin-right: unset;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-size: var(--font-size-base, 16px);
-  background: var(--color-bg-body, #fffafa);
+}
+
+body {
+  background-color: var(--color-bg-body, #efefef);
   color: var(--color-text-dark, #3d3a3a);
   font-family: var(--font-family-body, "Inter", sans-serif);
+}
+
+.recommendations__container {
+  margin: var(--base-5, 1.25rem) auto;
+  padding: var(--base-4, 1rem) var(--base-7, 1.75rem);
+  max-width: var(--boxed, 75rem);
+  background-color: var(--color-bg-recommendations, #fffafa);
   display: flex;
   flex-direction: column;
-  gap: var(--base-2, 0.5rem);
+  gap: var(--base-5, 1.25rem);
 }
 .recommendations__container h1,
 .recommendations__container h2 {
   font-family: var(--font-family-title, "ABeeZee", sans-serif);
-  color: var(--color-text-dark, #3d3a3a);
+  color: var(--color-text, #f4f2f2);
+}
+
+.card {
+  color: var(--color-text, #f4f2f2);
+}
+
+.recommendations__container-top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-4, 1rem);
+}
+.recommendations__container-top .top-tag {
+  font-weight: 600;
+  font-size: var(--base-3_5, 0.875rem);
+  border-bottom: solid var(--base-0_75, 0.1875rem) var(--color-grey, #cacaca);
+}
+.recommendations__container-top .top-tag__text {
+  border-bottom: solid var(--base-0_75, 0.1875rem) var(--color-black, #202221);
+}
+.recommendations__container-top .top-tag__text::before {
+  content: "";
+  display: inline-block;
+  vertical-align: baseline;
+  width: var(--base-3_5, 0.875rem);
+  height: var(--base-3_5, 0.875rem);
+  border-radius: var(--base-0_75, 0.1875rem);
+  background-color: var(--color-orange, #ff6f50);
+  margin-right: var(--base-2, 0.5rem);
+}
+.recommendations__container-top .top-text {
+  font-family: var(--font-family-title, "ABeeZee", sans-serif);
+  font-style: italic;
+  font-size: var(--base-7, 1.75rem);
+  font-weight: 500;
+  font-size: var(--base-5, 1.25rem);
+}
+.recommendations__container-destacats {
+  border: 1px solid green;
+}
+.recommendations__container-no-destacats {
+  border: 1px solid blue;
+}
+.recommendations__container .card {
+  border: 1px solid black;
+  background-color: rgba(128, 128, 128, 0.769);
+}
+.recommendations__container .card-content__tag {
+  font-weight: 600;
+  text-transform: uppercase;
 }

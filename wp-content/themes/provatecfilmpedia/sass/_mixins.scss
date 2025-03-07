@@ -1,0 +1,14 @@
+@use 'variables' as *;
+
+@mixin title-italic {
+  font-family: $font-family-title;
+  font-style: italic;
+  font-size: $base-7;
+  font-weight: 500;
+}
+
+@mixin card-content__tag {
+  background-color: $color-orange;
+  font-weight: 600;
+  text-transform: uppercase;
+}

@@ -1,20 +1,27 @@
 @use 'globals' as *;
 
-.recommendations__container {
-  margin: $base-5 auto;
-  padding: $base-5 $base-4;
-  max-width: $boxed;
-  font-size: $font-size-base;
-  background: $color-bg-body;
+body {
+  background-color: $color-bg-body;
   color: $color-text-dark;
   font-family: $font-family-body;
+}
+
+.recommendations__container {
+  margin: $base-5 auto;
+  padding: $base-4 $base-7;
+  max-width: $boxed;
+  background-color: $color-bg-recommendations;
   display: flex;
   flex-direction: column;
-  gap: $base-2;
+  gap: $base-5;
 
   h1,
   h2 {
     font-family: $font-family-title;
-    color: $color-text-dark;
+    color: $color-text;
   }
+}
+
+.card {
+  color: $color-text;
 }
