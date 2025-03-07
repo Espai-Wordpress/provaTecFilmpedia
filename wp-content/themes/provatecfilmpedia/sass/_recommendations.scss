@@ -38,46 +38,11 @@
     }
   }
 
+  // Estils personalitzats card 'destacat'
   &-destacats {
     border: 1px solid green;
-  }
 
-  &-no-destacats {
-    border: 1px solid blue;
-  }
-
-  .card {
-    border: 1px solid black;
-    background-color: rgba(128, 128, 128, 0.769);
-    font-size: $base-4;
-
-    &-background {
-    }
-
-    &-content {
-      font-family: $font-family-card;
-
-      &__title {
-        @include title-italic;
-        font-size: $base-8;
-      }
-
-      &__tag {
-        background-color: $color-orange;
-        border-radius: $base-0_75;
-        padding-inline: $base-1;
-        text-transform: uppercase;
-        transform: scale(1.25);
-        font-weight: 500;
-        font-size: $base-3;
-      }
-
-      &__description {
-      }
-    }
-
-    // Estils personalitzats card 'destacat'
-    &--destacat .card {
+    .card--destacat .card {
       &-background {
         &__image {
           display: none;
@@ -86,12 +51,21 @@
 
       &-content {
         &__title {
+          font-family: $font-family-destacat;
+          font-style: normal;
+        }
+
+        &__taxonomies {
         }
       }
     }
+  }
 
-    // Estils personalitzats card 'no-destacat'
-    &--no-destacat .card {
+  // Estils personalitzats card 'no-destacat'
+  &-no-destacats {
+    border: 1px solid blue;
+
+    .card--no-destacat .card {
       &-background {
         &__image-destacada {
           display: none;
@@ -114,6 +88,93 @@
           &-ambits {
             display: none;
           }
+        }
+      }
+    }
+  }
+
+  // Etils per totes les cards
+  .card {
+    border: 1px solid black;
+    background-color: rgba(128, 128, 128, 0.769);
+    font-size: $base-3_5;
+
+    &-background {
+    }
+
+    &-content {
+      font-family: $font-family-card;
+
+      &__tag {
+        background-color: $color-orange;
+        border-radius: $base-0_75;
+        padding-inline: $base-1;
+        text-transform: uppercase;
+        transform: scale(1.25);
+        font-weight: 500;
+        font-size: $base-3;
+      }
+
+      &__title {
+        @include title-italic;
+        font-size: $base-8;
+      }
+
+      &__description {
+      }
+
+      &__ranges {
+        &-title {
+          text-transform: uppercase;
+          font-size: $base-4;
+        }
+
+        &-container {
+          display: flex;
+          flex-direction: column;
+          gap: $base-1;
+        }
+      }
+
+      &__range {
+        &-block {
+          display: flex;
+          gap: $base-2;
+
+          .range-block {
+            &__label {
+            }
+
+            &__input {
+              color: $color-orange;
+            }
+          }
+        }
+      }
+
+      &__taxonomies {
+        &-edats {
+        }
+
+        &-etiquetes {
+        }
+        &-temes {
+        }
+
+        &-ambits {
+          display: none;
+        }
+      }
+
+      &__taxonomy {
+        &-title {
+          text-transform: uppercase;
+          font-size: $base-4;
+        }
+
+        &--etiqueta {
+          font-size: $base-4;
+          font-weight: 600;
         }
       }
     }

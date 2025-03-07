@@ -17,27 +17,29 @@ function render_recommendation( $post_data ) {
     <div class="card-content__description">
       <p><?php echo esc_html( $post_data['descripcio'] ); ?></p>
     </div>
+
     <div class="card-content__ranges">
       <h3 class="card-content__ranges-title">Valoració</h3>
       <div class="card-content__ranges-container">
-        <div class="card-content__range-block card-content__range">
-          <label class="card-content__range-label" for="ludic">Lúdic:</label>
-          <input class="card-content__range-input card-content__range-input--ludic" type="range" id="ludic" value="<?php echo esc_html( $post_data['ludic'] ); ?>" disabled min="0" max="10">
+        <div class="card-content__range-block range-block">
+          <label class="range-block__label" for="ludic">Lúdic</label>
+          <input class="range-block__input range-block__input--ludic" type="range" id="ludic" value="<?php echo esc_html( $post_data['ludic'] ); ?>" disabled min="0" max="10">
         </div>
-        <div class="card-content__range-block card-content__range">
-          <label class="card-content__range-label" for="cultural">Cultural:</label>
-          <input class="card-content__range-input card-content__range-input--cultural" type="range" id="cultural" value="<?php echo esc_html( $post_data['cultural'] ); ?>" disabled min="0" max="10">
+        <div class="card-content__range-block range-block">
+          <label class="range-block__label" for="cultural">Cultural</label>
+          <input class="range-block__input range-bloc__input--cultural" type="range" id="cultural" value="<?php echo esc_html( $post_data['cultural'] ); ?>" disabled min="0" max="10">
         </div>
-        <div class="card-content__range-block card-content__range">
-          <label class="card-content__range-label" for="artistic">Artístic:</label>
-          <input class="card-content__range-input card-content__range-input--artistic" type="range" id="artistic" value="<?php echo esc_html( $post_data['artistic'] ); ?>" disabled min="0" max="10">
+        <div class="card-content__range-block range-block">
+          <label class="range-block__label" for="artistic">Artístic</label>
+          <input class="range-block__input range-block__input--artistic" type="range" id="artistic" value="<?php echo esc_html( $post_data['artistic'] ); ?>" disabled min="0" max="10">
         </div>
-        <div class="card-content__range-block card-content__range">
-          <label class="card-content__range-label" for="educatiu">Educatiu:</label>
-          <input class="card-content__range-input card-content__range-input--educatiu" type="range" id="educatiu" value="<?php echo esc_html( $post_data['educatiu'] ); ?>" disabled min="0" max="10">
+        <div class="card-content__range-block range-block">
+          <label class="range-block__label" for="educatiu">Educatiu</label>
+          <input class="range-block__input range-block__input--educatiu" type="range" id="educatiu" value="<?php echo esc_html( $post_data['educatiu'] ); ?>" disabled min="0" max="10">
         </div>
       </div>
     </div>
+
     <div class="card-content__taxonomies">
       <div class="card-content__taxonomies-edats card-content__taxonomy">
         <p class="card-content__taxonomy-item card-content__taxonomy--edat"><?php echo esc_html( $post_data['edat'] ); ?></p>

@@ -26,6 +26,7 @@
   --font-family-title: 'ABeeZee', sans-serif;
   --font-family-body: 'Inter', sans-serif;
   --font-family-card: 'DM Sans', sans-serif;
+  --font-family-destacat: 'MADE Gentle', sans-serif;
 
   // Espais
   --base: 0.25rem;
@@ -85,6 +86,7 @@ $font-size-base: var(--font-size-base, 16px);
 $font-family-title: var(--font-family-title, 'ABeeZee', sans-serif);
 $font-family-body: var(--font-family-body, 'Inter', sans-serif);
 $font-family-card: var(--font-family-card, 'DM Sans', sans-serif);
+$font-family-destacat: var(--font-family-destacat, 'MADE Gentle', sans-serif);
 
 // Generar espais automàticament
 $base-0_5: var(--base-0_5, 0.125rem); // 2px
@@ -118,7 +120,7 @@ $base-20: var(--base-20, 5rem); // 80px
 // 1168px + 32px (padding extern) --> 1200px
 $boxed: var(--boxed, calc(73rem + 2rem));
 
-// 📌 Z-index
+// Z-index
 $z-p1: var(--z-index-p1, 1);
 $z-p2: var(--z-index-p2, 2);
 $z-1: var(--z-index-1, -1);
