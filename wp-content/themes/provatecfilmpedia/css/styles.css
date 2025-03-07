@@ -1,3 +1,17 @@
+:root :where(.is-layout-constrained) > :last-child {
+  margin-block-end: unset;
+}
+
+:root :where(.is-layout-constrained) > :first-child {
+  margin-block-start: unset;
+}
+
+.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: unset;
+  margin-left: unset;
+  margin-right: unset;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -1,4 +1,4 @@
-*{margin:0;padding:0;box-sizing:border-box}:root{--color-text:#f4f2f2;--color-text-dark:#3d3a3a;--color-white:#ffffff;--color-black:#202221;--color-orange:#ff6f50;--color-bg-body:#fffafa;--color-bg-black:#202221;--color-bg-black-semitransparent:#20222118;--gradient-destacat:linear-gradient(
+:root :where(.is-layout-constrained)>:last-child{margin-block-end:unset}:root :where(.is-layout-constrained)>:first-child{margin-block-start:unset}.is-layout-constrained>:where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width:unset;margin-left:unset;margin-right:unset}*{margin:0;padding:0;box-sizing:border-box}:root{--color-text:#f4f2f2;--color-text-dark:#3d3a3a;--color-white:#ffffff;--color-black:#202221;--color-orange:#ff6f50;--color-bg-body:#fffafa;--color-bg-black:#202221;--color-bg-black-semitransparent:#20222118;--gradient-destacat:linear-gradient(
     to right,
     var(--color-bg-black) 50%,
     var(--color-bg-black-semitransparent) 100%

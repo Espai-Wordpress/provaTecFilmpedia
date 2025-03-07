@@ -1,6 +1,20 @@
+// Intent de resetejar estils de l'estructura de la pàgina que venen del tema. Però no es pot perquè són estils en línia..
+:root :where(.is-layout-constrained) > :last-child {
+  margin-block-end: unset;
+}
+:root :where(.is-layout-constrained) > :first-child {
+  margin-block-start: unset;
+}
+
+.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: unset;
+  margin-left: unset;
+  margin-right: unset;
+}
+
+// Reset de l'estructura de la pàgina
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
