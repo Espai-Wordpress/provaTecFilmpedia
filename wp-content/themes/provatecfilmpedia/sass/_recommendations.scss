@@ -45,14 +45,23 @@
   &-no-destacats {
     border: 1px solid blue;
   }
+
   .card {
     border: 1px solid black;
     background-color: rgba(128, 128, 128, 0.769);
+    font-size: $base-4;
 
     &-background {
     }
 
     &-content {
+      font-family: $font-family-card;
+
+      &__title {
+        @include title-italic;
+        font-size: $base-8;
+      }
+
       &__tag {
         background-color: $color-orange;
         border-radius: $base-0_75;
@@ -61,6 +70,51 @@
         transform: scale(1.25);
         font-weight: 500;
         font-size: $base-3;
+      }
+
+      &__description {
+      }
+    }
+
+    // Estils personalitzats card 'destacat'
+    &--destacat .card {
+      &-background {
+        &__image {
+          display: none;
+        }
+      }
+
+      &-content {
+        &__title {
+        }
+      }
+    }
+
+    // Estils personalitzats card 'no-destacat'
+    &--no-destacat .card {
+      &-background {
+        &__image-destacada {
+          display: none;
+        }
+      }
+      &-content {
+        &__title {
+        }
+
+        &__description {
+          display: none;
+        }
+
+        &__ranges {
+          display: none;
+        }
+
+        &__taxonomies {
+          &-temes,
+          &-ambits {
+            display: none;
+          }
+        }
       }
     }
   }

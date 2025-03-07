@@ -1,5 +1,38 @@
 @use 'globals' as *;
 
+/* ABeeZee - Tipografia Estàtica */
+@font-face {
+  font-family: 'ABeeZee';
+  src: url('../fonts/ABeeZee-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* DM Sans - Font Variable */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900; // Rang complet per fonts variables
+  font-style: normal;
+}
+
+/* Inter - Font Variable */
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* MADE Gentle - Tipografia Estàtica */
+@font-face {
+  font-family: 'MADE Gentle';
+  src: url('../fonts/MADE Gentle PERSONAL USE.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
   background-color: $color-bg-body;
   color: $color-text-dark;

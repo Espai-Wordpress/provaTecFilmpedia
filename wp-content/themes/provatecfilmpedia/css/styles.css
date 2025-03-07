@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --color-text: #f4f2f2;
   --color-text-dark: #252525;
@@ -78,6 +79,34 @@ body {
   font-size: var(--font-size-base, 16px);
 }
 
+/* ABeeZee - Tipografia Estàtica */
+@font-face {
+  font-family: "ABeeZee";
+  src: url("../fonts/ABeeZee-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* DM Sans - Font Variable */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+/* Inter - Font Variable */
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+/* MADE Gentle - Tipografia Estàtica */
+@font-face {
+  font-family: "MADE Gentle";
+  src: url("../fonts/MADE Gentle PERSONAL USE.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   background-color: var(--color-bg-body, #efefef);
   color: var(--color-text-dark, #252525);
@@ -133,7 +162,7 @@ body {
   font-family: var(--font-family-title, "ABeeZee", sans-serif);
   font-style: italic;
   font-size: var(--base-7, 1.75rem);
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--base-6, 1.5rem);
 }
 .recommendations__container-destacats {
@@ -145,6 +174,17 @@ body {
 .recommendations__container .card {
   border: 1px solid black;
   background-color: rgba(128, 128, 128, 0.769);
+  font-size: var(--base-4, 1rem);
+}
+.recommendations__container .card-content {
+  font-family: var(--font-family-card, "DM Sans", sans-serif);
+}
+.recommendations__container .card-content__title {
+  font-family: var(--font-family-title, "ABeeZee", sans-serif);
+  font-style: italic;
+  font-size: var(--base-7, 1.75rem);
+  font-weight: 500;
+  font-size: var(--base-8, 2rem);
 }
 .recommendations__container .card-content__tag {
   background-color: var(--color-orange, #ff6f50);
@@ -154,4 +194,19 @@ body {
   transform: scale(1.25);
   font-weight: 500;
   font-size: var(--base-3, 0.75rem);
+}
+.recommendations__container .card--destacat .card-background__image {
+  display: none;
+}
+.recommendations__container .card--no-destacat .card-background__image-destacada {
+  display: none;
+}
+.recommendations__container .card--no-destacat .card-content__description {
+  display: none;
+}
+.recommendations__container .card--no-destacat .card-content__ranges {
+  display: none;
+}
+.recommendations__container .card--no-destacat .card-content__taxonomies-temes, .recommendations__container .card--no-destacat .card-content__taxonomies-ambits {
+  display: none;
 }
