@@ -1,4 +1,5 @@
 <?php
+
 add_action( 'acf/include_fields', function () {
     if ( !function_exists( 'acf_add_local_field_group' ) ) {
         return;
@@ -289,7 +290,7 @@ add_action( 'acf/include_fields', function () {
                     'class' => '',
                     'id'    => '',
                 ),
-                'return_format'     => 'array',
+                'return_format'     => 'url',
                 'library'           => 'all',
                 'min_width'         => '',
                 'min_height'        => '',
@@ -299,7 +300,33 @@ add_action( 'acf/include_fields', function () {
                 'max_size'          => '',
                 'mime_types'        => '',
                 'allow_in_bindings' => 1,
-                'preview_size'      => 'medium',
+                'preview_size'      => 'full',
+            ),
+            array(
+                'key'               => 'field_67cb1e5a766ce',
+                'label'             => 'Imatge fons destacada',
+                'name'              => 'imatge_fons_destacada',
+                'aria-label'        => '',
+                'type'              => 'image',
+                'instructions'      => '',
+                'required'          => 0,
+                'conditional_logic' => 0,
+                'wrapper'           => array(
+                    'width' => '',
+                    'class' => '',
+                    'id'    => '',
+                ),
+                'return_format'     => 'url',
+                'library'           => 'all',
+                'min_width'         => '',
+                'min_height'        => '',
+                'min_size'          => '',
+                'max_width'         => '',
+                'max_height'        => '',
+                'max_size'          => '',
+                'mime_types'        => '',
+                'allow_in_bindings' => 0,
+                'preview_size'      => 'full',
             ),
             array(
                 'key'               => 'field_67c6d82837ff1',
@@ -366,8 +393,8 @@ add_action( 'acf/include_fields', function () {
 } );
 
 add_action( 'init', function () {
-    register_taxonomy( 'ambits', array(
-        0 => 'recomanacions',
+    register_taxonomy( 'ambit', array(
+        0 => 'recomanacio',
     ), array(
         'labels'       => array(
             'name'                     => 'Àmbits',
@@ -406,8 +433,8 @@ add_action( 'init', function () {
         ),
     ) );
 
-    register_taxonomy( 'edats', array(
-        0 => 'recomanacions',
+    register_taxonomy( 'edat', array(
+        0 => 'recomanacio',
     ), array(
         'labels'       => array(
             'name'                     => 'Edats',
@@ -443,8 +470,8 @@ add_action( 'init', function () {
         'show_in_rest' => true,
     ) );
 
-    register_taxonomy( 'etiquetes', array(
-        0 => 'recomanacions',
+    register_taxonomy( 'etiqueta', array(
+        0 => 'recomanacio',
     ), array(
         'labels'       => array(
             'name'                       => 'Etiquetes',
@@ -479,8 +506,8 @@ add_action( 'init', function () {
         'show_in_rest' => true,
     ) );
 
-    register_taxonomy( 'temes', array(
-        0 => 'recomanacions',
+    register_taxonomy( 'tema', array(
+        0 => 'recomanacio',
     ), array(
         'labels'            => array(
             'name'                     => 'Temes',
@@ -522,7 +549,7 @@ add_action( 'init', function () {
 } );
 
 add_action( 'init', function () {
-    register_post_type( 'recomanacions', array(
+    register_post_type( 'recomanacio', array(
         'labels'           => array(
             'name'                     => 'Recomanacions',
             'singular_name'            => 'Recomanació',
@@ -577,7 +604,7 @@ add_action( 'init', function () {
 
 add_filter( 'enter_title_here', function ( $default, $post ) {
     switch ( $post->post_type ) {
-    case 'recomanacions':
+    case 'recomanacio':
         return 'Afegir recomanació';
     }
 
